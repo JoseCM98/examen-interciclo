@@ -2,19 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { PersonaService } from 'src/app/services/persona/persona.service';
 import { Persona } from 'src/app/models/Persona';
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class AppComponent implements OnInit{
-  title = 'examen-interciclo';
+export class LoginComponent implements OnInit {
   persona:Persona = new Persona();
   estado:boolean=true;
   listadePersonas:Persona[]=[];
   name: string="";
   contra: string="";
   nom:boolean=false;
-  nem:boolean=true;
   constructor(private personaService:PersonaService) { }
 
 
@@ -27,10 +25,9 @@ export class AppComponent implements OnInit{
   login() {
     for (let i = 0; i < this.listadePersonas.length; i++) {
       if(this.listadePersonas[i].username==this.name && this.listadePersonas[i].password==this.contra){
-        this.nom=true
-        this.nem=false;
         console.log("bien");
       }
     }
   }
+
 }
